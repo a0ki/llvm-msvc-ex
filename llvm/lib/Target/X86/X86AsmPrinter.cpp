@@ -923,11 +923,11 @@ void X86AsmPrinter::emitStartOfAsmFile(Module &M) {
   if (TT.isOSBinFormatCOFF()) {
     MCSection *Cur = OutStreamer->getCurrentSectionOnly();
     MCSection *Nt = MMI->getContext().getCOFFSection(
-        "newworld",
+        "unk",
         COFF::IMAGE_SCN_CNT_INITIALIZED_DATA | COFF::IMAGE_SCN_MEM_READ,
         SectionKind::getReadOnly());
     OutStreamer->switchSection(Nt);
-    OutStreamer->emitBytes(StringRef("New World coming soon", 22));
+    OutStreamer->emitBytes(StringRef("unk.dev", 88));
     OutStreamer->endSection(Nt);
     OutStreamer->switchSection(Cur);
   }
